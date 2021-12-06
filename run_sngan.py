@@ -46,6 +46,7 @@ def load_sngan():
     dis_net=Discriminator(args).eval().cuda()
     
     gen_net.inverse_transform = NormalizeInverse((0.5, 0.5, 0.5), (0.5, 0.5, 0.5))
+    gen_net.z_dim = 128
     print(f'=> resuming from {args.load_path}')
     assert os.path.exists(args.load_path)
     checkpoint_file = args.load_path
